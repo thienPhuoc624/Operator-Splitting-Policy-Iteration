@@ -445,30 +445,30 @@ def run_splitting_scheme_with_pi_lambda(epsilon, T_scheme, N_time,
     return x_points, u_prev, hjb_residuals_per_time
 
 
-if __name__ == "__main__":
-    epsilon   = 1
-    T_scheme  = 1.0
-    N_time    = 20
-    eta       = 0.6
-    tranum    = 12
-    itenum_pi = 5
 
-    x_pts, u_TN, hjb_res_all = run_splitting_scheme_with_pi_lambda(
-        epsilon=epsilon,
-        T_scheme=T_scheme,
-        N_time=N_time,
-        eta=eta,
-        tranum=tranum,
-        itenum_pi=itenum_pi,
-        n_mc_heat=16
-    )
+epsilon   = 1
+T_scheme  = 1.0
+N_time    = 20
+eta       = 0.6
+tranum    = 12
+itenum_pi = 5
 
-    min_res_per_step = [min(res_list) for res_list in hjb_res_all]
-    print("\n=== Summary over Schemes steps ")
-    print("step i | min HJB residual during PI–λ at this step")
-    print("-----------------------------------------------")
-    for i, r in enumerate(min_res_per_step):
-        print(f"{i:6d} | {r:.4e}")
+x_pts, u_TN, hjb_res_all = run_splitting_scheme_with_pi_lambda(
+    epsilon=epsilon,
+    T_scheme=T_scheme,
+    N_time=N_time,
+    eta=eta,
+    tranum=tranum,
+    itenum_pi=itenum_pi,
+    n_mc_heat=16
+)
 
-    sess.close()
-    print("\nDone.")
+min_res_per_step = [min(res_list) for res_list in hjb_res_all]
+print("\n=== Summary over Schemes steps ")
+print("step i | min HJB residual during PI–λ at this step")
+print("-----------------------------------------------")
+for i, r in enumerate(min_res_per_step):
+    print(f"{i:6d} | {r:.4e}")
+
+sess.close()
+print("\nDone.")
