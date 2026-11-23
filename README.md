@@ -81,7 +81,7 @@ The endpoint \(\eta(t)=x\) is fixed and trajectories are traced toward the initi
 
 ## 2. Operator splitting
 
-Write \(\mathcal S_h^{\mathrm{HJ}}\) for the first-order evolution operator and \(\mathcal S_h^{\mathrm H}\) for the heat operator.
+Write $$\(\mathcal S_h^{\mathrm{HJ}}\)$$ for the first-order evolution operator and $$\(\mathcal S_h^{\mathrm H}\)$$ for the heat operator.
 
 **Nonlinear Hamilton–Jacobi step:**
 
@@ -104,7 +104,7 @@ Z\sim\mathcal N(0,I_d).
 \end{aligned}
 $$
 
-This motivates Monte Carlo heat updates. When \(\varepsilon=0\), the heat operator becomes the identity.
+This motivates Monte Carlo heat updates. When $$\(\varepsilon=0\)$$, the heat operator becomes the identity.
 
 For \(h=T/n\) and \(t_i=ih\), **Equation (1.5) in the paper applies the full HJ step first, then the full heat step**:
 
