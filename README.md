@@ -77,7 +77,7 @@ u(x,t)=\inf_{a(\cdot)}\left\{\int_0^t \ell(\eta(s),a(s))\,ds+u_0(\eta(0))\right\
 \end{aligned}
 $$
 
-The endpoint \(\eta(t)=x\) is fixed and trajectories are traced toward the initial time. A conventional grid with \(m\) nodes per coordinate needs \(m^d\) states. The characteristic approach instead constructs supervised data along sampled paths, reducing the dependence on a dense high-dimensional spatial grid (without removing the underlying dimension dependence of learning and sampling).
+The endpoint $$\(\eta(t)=x\)$$ is fixed and trajectories are traced toward the initial time. A conventional grid with $$\(m\)$$ nodes per coordinate needs $$\(m^d\)$$ states. The characteristic approach instead constructs supervised data along sampled paths, reducing the dependence on a dense high-dimensional spatial grid (without removing the underlying dimension dependence of learning and sampling).
 
 ## 2. Operator splitting
 
@@ -138,7 +138,7 @@ $$\lambda(x,t)=\nabla_x u(x,t).$$
 
 ### Step 1 — linear policy evaluation
 
-Given the current policy \(a^{(k)}(x,t)\), **Algorithm 1** computes the next value gradient by solving
+Given the current policy $$\(a^{(k)}(x,t)\)$$, **Algorithm 1** computes the next value gradient by solving
 
 $$
 \boxed{\begin{aligned}
@@ -150,9 +150,9 @@ $$
 \end{aligned}}
 $$
 
-All terms involving \(a^{(k)}\) or \(\lambda^{(k)}\) are known, so this is **linear in the new iterate** \(\lambda^{(k+1)}\). The \(d\) gradient components can be evaluated along characteristic paths with parallelism.
+All terms involving $$\(a^{(k)}\)$$ or $$\(\lambda^{(k)}\)$$ are known, so this is **linear in the new iterate** $$\(\lambda^{(k+1)}\)$$. The $$\(d\)$$ gradient components can be evaluated along characteristic paths with parallelism.
 
-For the characteristic \(X(s)\) defined by
+For the characteristic $$\(X(s)\)$$ defined by
 
 $$\dot X(s)=-f(X(s),a^{(k)}(X(s),s)),$$
 
@@ -168,14 +168,14 @@ This turns PDE evaluation into trajectory integrations and labeled gradient samp
 
 ### Step 2 — policy improvement
 
-Given \(\lambda^{(k+1)}\), the policy is improved pointwise via
+Given $$\(\lambda^{(k+1)}\)$$, the policy is improved pointwise via
 
 $$
 \boxed{a^{(k+1)}(x,t)=\arg\min_a\left\{
 \lambda^{(k+1)}(x,t)\cdot f(x,a)+\ell(x,a)\right\}.}
 $$
 
-Equivalently, maximize \(-\lambda^{(k+1)}\cdot f-\ell\). Repeat the two steps until the gradient, policy, or residual meets a stopping criterion. **In the public scripts, `force_zero=True` fixes characteristic controls to zero by default; this turns off the full feedback-policy improvement in the executed runs**, even though an action-computation helper is present.
+Equivalently, maximize $$\(-\lambda^{(k+1)}\cdot f-\ell\)$$. Repeat the two steps until the gradient, policy, or residual meets a stopping criterion. **In the public scripts, `force_zero=True` fixes characteristic controls to zero by default; this turns off the full feedback-policy improvement in the executed runs**, even though an action-computation helper is present.
 
 ### Conceptual algorithm
 
@@ -229,7 +229,7 @@ under an appropriate decay condition, along with an associated gradient represen
 
 ### 4.2 Fit the value **and** its gradient
 
-Let \(\widehat{\mathcal V}_\theta\) be a differentiable model (here, a tanh neural network). The **paper's loss, Equation (4.5)**, is
+Let $$\(\widehat{\mathcal V}_\theta\)$$ be a differentiable model (here, a tanh neural network). The **paper's loss, Equation (4.5)**, is
 
 $$
 \boxed{\begin{aligned}
@@ -282,8 +282,8 @@ The additional weight `pde_weight` equals **10** in `horizon_HJB` and `horizon_H
 | \(\lambda\) | Value gradient \(\nabla_xu\) | Estimated by `lambda_approx` and auto-differentiated from the NN. |
 | \(a\) | Control policy | Determines \(f(x,a)\); default scripts force it to zero. |
 | \(\theta\) | NN parameters | Weights and biases used in supervised fitting. |
-| \(n\) / `N_time` | Number of splitting intervals | Gives \(h=T/n\); **different from \(N\)**. |
-| \(N_p\) | Number of test points for the residual | Paper: **10,000**; source evaluation loops: **1,000**. |
+| \(n\) / `N_time` | Number of splitting intervals | Gives $$\(h=T/n\)$$; **different from \(N\)**. |
+| \(N_p\) | Number of test points for the residual |  **10,000**|
 
 **Do not confuse experimental T1/T2 with theoretical \(T_1,T_2\).** Section 3 defines \(T_1,T_2\) as bounds on the time horizon used in the convergence proof. The **T1 and T2 labels in Tables 1–4 instead refer only to the two matrix benchmarks**.
 
