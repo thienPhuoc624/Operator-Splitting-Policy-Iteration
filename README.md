@@ -73,9 +73,7 @@ The deterministic value function is
 
 $$
 \begin{aligned}
-u(x,t)&=\inf_{a(\cdot)}\left\{\int_0^t
-\ell(\eta(s),a(s))\,ds+u_0(\eta(0))\right\},\\
-\dot\eta(s)&=-f(\eta(s),a(s)),\qquad \eta(t)=x.
+u(x,t)=\inf_{a(\cdot)}\left\{\int_0^t \ell(\eta(s),a(s))\,ds+u_0(\eta(0))\right\},
 \end{aligned}
 $$
 
